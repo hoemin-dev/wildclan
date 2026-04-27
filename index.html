@@ -6,7 +6,7 @@
   <title>Wildclan</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -52,7 +52,7 @@
 
   <!-- HEADER LOAD -->
   <script>
-    fetch('/components/header.html')
+    fetch('./components/header.html')
       .then(res => res.text())
       .then(data => {
         document.getElementById('header').innerHTML = data;
