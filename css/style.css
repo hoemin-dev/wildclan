@@ -96,6 +96,34 @@ body {
   color: var(--accent);
 }
 
+.theme-switch {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.theme-switch button {
+  border: 0;
+  padding: 6px 12px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.theme-switch button:first-child {
+  border-right: 1px solid var(--border);
+}
+
+body:not(.light) .theme-switch [data-theme-set="dark"],
+body.light .theme-switch [data-theme-set="light"] {
+  background: var(--accent);
+  color: #111;
+}
+
 /* Page base */
 main {
   max-width: 1440px;
