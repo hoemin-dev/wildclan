@@ -1,12 +1,29 @@
-// /js/include.js
+async function loadHTML(targetId, filePath, callback) {
+  const target = document.getElementById(targetId);
+  if (!target) return;
 
-function includeHTML() {
-  document.querySelectorAll('[data-include]').forEach(async (el) => {
-    const file = el.getAttribute('data-include');
-    const res = await fetch(file);
+  try {
+    const res = await fetch(filePath);
+
+    if (!res.ok) {
+      throw new Error(`Failed to load ${filePath}`);
+    }
+
     const html = await res.text();
-    el.innerHTML = html;
-  });
+    target.innerHTML = html;
+
+    if (typeof callback === 'function') {
+      callback();
+    }
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-includeHTML();
+loadHTML('header', '/components/header.html', () => {
+  if (typeof initLangSwitch === 'function') {
+    initLangSwitch();
+  }
+});
+
+loadHTML('footer', '/components/footer.html');
