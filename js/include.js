@@ -20,7 +20,7 @@ async function loadHTML(targetId, filePath, callback) {
   }
 }
 
-loadHTML('header', '/components/header.html', () => {
+loadHTML('header', './/components/header.html', () => {
   if (typeof initLangSwitch === 'function') {
     initLangSwitch();
   }
